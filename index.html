@@ -5,150 +5,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>George Kontrafouris - Portfolio</title>
     <style>
+        :root {
+            --bg-color: #090d16;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --accent-cyan: #38bdf8;
+            --accent-indigo: #6366f1;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+
         html {
             scroll-behavior: smooth;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
+            color: var(--text-main);
+            overflow-x: hidden;
         }
 
-        /* Navigation Bar */
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Navigation Bar (Glassmorphism) */
         nav {
-            background-color: #0f172a;
-            padding: 15px 0;
+            background-color: rgba(9, 13, 22, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             list-style: none;
             margin: 0;
             padding: 0;
         }
         .nav-links a {
-            color: #f8fafc;
+            color: var(--text-muted);
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
         }
         .nav-links a:hover {
-            color: #38bdf8;
+            color: var(--accent-cyan);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            color: white;
+            position: relative;
             text-align: center;
-            padding: 100px 20px;
+            padding: 140px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .hero h1 {
-            font-size: 3.5rem;
-            margin: 0 0 10px 0;
-            color: #38bdf8;
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 span {
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 700px;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        /* Sections */
+        /* Section Layouts */
         .section {
-            padding: 80px 20px;
-            max-width: 1000px;
+            padding: 100px 20px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #0f172a;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: #ffffff;
             text-align: center;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
         }
 
-        /* Info Cards */
+        /* Cards Grid */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
+
+        /* Info & Project Cards */
         .info-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
         .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.05);
         }
+
         .info-card h3 {
             margin-top: 0;
-            color: #1e293b;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 10px;
+            font-size: 1.4rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
         }
         .info-card h4 {
-            color: #38bdf8;
-            margin: 15px 0 5px 0;
+            color: var(--accent-cyan);
+            margin: 20px 0 5px 0;
+            font-size: 1.1rem;
         }
         .info-card p {
-            color: #64748b;
+            color: var(--text-muted);
             margin: 0 0 15px 0;
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         .info-card ul {
             padding-left: 20px;
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* Buttons */
+        /* Badges */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .badge {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--accent-cyan);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        /* Clean Buttons */
         .action-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #38bdf8;
-            color: #0f172a;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+            color: #090d16;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 8px;
             transition: all 0.3s ease;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
         }
         .action-btn:hover {
-            background-color: #0ea5e9;
-            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+            color: #ffffff;
         }
 
         /* Footer */
         footer {
-            background-color: #0f172a;
-            color: #94a3b8;
+            background-color: #05070c;
+            color: var(--text-muted);
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
         }
     </style>
 </head>
 <body>
+
+    <div id="scroll-progress"></div>
 
     <nav>
         <ul class="nav-links">
@@ -160,8 +254,8 @@
     </nav>
 
     <section id="home" class="hero">
-        <h1>Hi, I'm George Kontrafouris 👋</h1>
-        <p>Student leader, athlete, and debate competitor. I am currently expanding my technical expertise through engineering studies and AI certifications.</p>
+        <h1>Hi, I'm <span>George Kontrafouris</span></h1>
+        <p>Student leader, athlete, and debate competitor. Currently expanding technical expertise through systems engineering studies and advanced AI development.</p>
     </section>
 
     <section id="resume" class="section">
@@ -175,13 +269,13 @@
                     <p>Integrated Master in Electrical & Computer Engineering (2025 - Present)</p>
                     <ul>
                         <li>Ranked 7th in National Entrance Exams.</li>
-                        <li>Focusing on systems engineering, software technologies, and foundational engineering principles.</li>
+                        <li>Focusing on software technologies, systems engineering, and foundational computing.</li>
                     </ul>
 
                     <h4>Google AI Specialization</h4>
                     <p>Professional Certificate & AI for App Building (Issued May 2026)</p>
                     <ul>
-                        <li>Comprehensive training focusing on foundational AI implementation and advanced machine learning models for functional software applications.</li>
+                        <li>Rigorous training in machine learning models, system implementation, and functional software AI integration.</li>
                     </ul>
                 </div>
             </div>
@@ -192,7 +286,7 @@
                     <h4>NE Patron (NEP) – Water Polo Athlete</h4>
                     <p>Active competitor (Current)</p>
                     <ul>
-                        <li>Practicing peak discipline and teamwork. Team ranked among the top 10 in Greece (2022).</li>
+                        <li>Practicing peak physical discipline and strategy. Team ranked among the top 10 in Greece (2022).</li>
                     </ul>
                     
                     <h4>Model United Nations & Debate</h4>
@@ -208,12 +302,12 @@
 
             <div class="info-card">
                 <div>
-                    <h3>💡 Skills</h3>
+                    <h3>💡 Core Skills</h3>
                     <h4>Soft Skills & Communication</h4>
-                    <p>Negotiation, Public Speaking, Debate Strategy, Organized Collaborator, Calm under pressure, Goal-oriented.</p>
+                    <p>Negotiation, Public Speaking, Debate Strategy, Organized Collaborator, Calm under pressure.</p>
                     
                     <h4>Technical & Analytical</h4>
-                    <p>Engineering Logic, AI Implementation, System Problem-solving.</p>
+                    <p>Engineering Logic, Real-Time Systems, AI Implementation, Signal Processing.</p>
                     
                     <h4>Languages</h4>
                     <p>Greek (Native), English (Fluent).</p>
@@ -223,56 +317,117 @@
         </div>
     </section>
 
-    <section id="projects" class="section" style="background-color: #f1f5f9; max-width: 100%;">
-        <div style="max-width: 1000px; margin: 0 auto;">
+    <section id="projects" class="section" style="background-color: rgba(255, 255, 255, 0.01); max-width: 100%; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
             <h2 class="section-title">My Projects</h2>
             <div class="grid-container">
                 
                 <div class="info-card" style="text-align: center;">
                     <div>
+                        <div class="badge-container" style="justify-content: center;">
+                            <span class="badge">HTML5/CSS3</span>
+                            <span class="badge">JavaScript</span>
+                        </div>
                         <h3>⚽ World Cup Archive</h3>
-                        <p>A dynamic website displaying matches and scorers of all World Cups (2002-2022), built with HTML, CSS, and JavaScript data filtering.</p>
+                        <p>A dynamic web catalog recording matches, stats, and historical scorers of all World Cups from 2002 to 2022. Built with responsive client-side data filters.</p>
                     </div>
                     <a href="https://kontraf.github.io/my-first-website/" target="_blank" class="action-btn">View Live</a>
                 </div>
 
                 <div class="info-card" style="text-align: center;">
                     <div>
+                        <div class="badge-container" style="justify-content: center;">
+                            <span class="badge">Sci-Fi UI</span>
+                            <span class="badge">UX Design</span>
+                        </div>
                         <h3>⚡ AI Prompt Craft</h3>
-                        <p>A high-tech terminal prompt generator designed to craft optimized prompts for LLMs (ChatGPT, Gemini, Claude) based on roles and tones.</p>
+                        <p>A cyberpunk-themed terminal prompt engineer designed to craft, format, and optimize system instructions for LLM interaction (GPT, Claude).</p>
                     </div>
                     <a href="https://kontraf.github.io/prompt-generator/" target="_blank" class="action-btn">View Live</a>
                 </div>
 
                 <div class="info-card" style="text-align: center;">
                     <div>
+                        <div class="badge-container" style="justify-content: center;">
+                            <span class="badge">Touch Events</span>
+                            <span class="badge">Mobile-First</span>
+                        </div>
                         <h3>🤽‍♂️ Tactics Board</h3>
-                        <p>A mobile-responsive interactive whiteboard allowing users to drag and drop players and the ball to design tactical plays in a virtual pool.</p>
+                        <p>A highly responsive interactive tactics board allowing players and coaches to drag-and-drop units and the ball to design complex plays in real-time.</p>
                     </div>
                     <a href="https://kontraf.github.io/waterpolo-tactics/" target="_blank" class="action-btn">View Live</a>
                 </div>
 
                 <div class="info-card" style="text-align: center;">
                     <div>
+                        <div class="badge-container" style="justify-content: center;">
+                            <span class="badge">Chart.js</span>
+                            <span class="badge">Data Viz</span>
+                        </div>
                         <h3>📊 Progress Tracker</h3>
-                        <p>An interactive statistics dashboard monitoring academic credentials, technical skills, and projects, built with Chart.js integration.</p>
+                        <p>An interactive data analytics dashboard designed to visualize academic goals, technical competencies, and project status using real-time graphs.</p>
                     </div>
                     <a href="https://kontraf.github.io/progress-tracker/" target="_blank" class="action-btn">View Live</a>
+                </div>
+
+                <div class="info-card" style="text-align: center;">
+                    <div>
+                        <div class="badge-container" style="justify-content: center;">
+                            <span class="badge">Web Audio API</span>
+                            <span class="badge">FFT / Canvas</span>
+                        </div>
+                        <h3>🔊 Audio Visualizer</h3>
+                        <p>Real-time digital signal processor executing Fast Fourier Transforms (FFT) on audio streams, rendering beautiful frequency spectrum waves at 60 FPS.</p>
+                    </div>
+                    <a href="https://kontraf.github.io/audio-visualizer/" target="_blank" class="action-btn">View Live</a>
+                </div>
+
+                <div class="info-card" style="text-align: center;">
+                    <div>
+                        <div class="badge-container" style="justify-content: center;">
+                            <span class="badge">Puter.js API</span>
+                            <span class="badge">Tailwind CSS</span>
+                        </div>
+                        <h3>🏛️ Debate Constructor</h3>
+                        <p>An AI-powered debate assistant utilizing Puter.js and Tailwind CSS. Helps users formulate structured S-E-X-I arguments and export compiled speech cards.</p>
+                    </div>
+                    <a href="https://kontraf.github.io/debate-constructor/" target="_blank" class="action-btn">View Live</a>
+                </div>
+
+                <div class="info-card" style="text-align: center;">
+                    <div>
+                        <div class="badge-container" style="justify-content: center;">
+                            <span class="badge">State Management</span>
+                            <span class="badge">CSV Export</span>
+                        </div>
+                        <h3>📈 Live Stat-Tracker</h3>
+                        <p>A mobile-optimized statistics tracker built with Tailwind CSS. Enables coaches to record real-time game events and export complete match sheets directly to CSV/Excel.</p>
+                    </div>
+                    <a href="https://kontraf.github.io/waterpolo-tracker/" target="_blank" class="action-btn">View Live</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section" style="background-color: #e0f2fe; max-width: 100%; text-align: center;">
+    <section id="contact" class="section" style="text-align: center; max-width: 600px;">
         <h2 class="section-title">Let's Connect!</h2>
-        <p style="font-size: 1.1rem; color: #334155; margin-bottom: 25px;">Based in Patras, Greece, but available for exciting projects anywhere.</p>
-        <a href="mailto:georgecontrafouris@gmail.com" class="action-btn" style="font-size: 1.2rem; padding: 15px 30px;">Send me an Email</a>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.6;">Based in Patras, Greece, but available for exciting engineering and web projects globally.</p>
+        <a href="mailto:georgecontrafouris@gmail.com" class="action-btn" style="font-size: 1rem; padding: 16px 36px; border-radius: 30px;">Send me an Email</a>
     </section>
 
     <footer>
-        <p>© 2026 - George Kontrafouris</p>
+        <p>© 2026 - George Kontrafouris // Engineered with Logic</p>
     </footer>
 
+    <script>
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+    </script>
 </body>
 </html>
