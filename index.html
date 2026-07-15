@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Kontrafouris - Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #0f172a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+            color: #38bdf8;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #0f172a;
+            text-align: center;
+        }
+
+        /* Info Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .info-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        .info-card h3 {
+            margin-top: 0;
+            color: #1e293b;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+        .info-card h4 {
+            color: #38bdf8;
+            margin: 15px 0 5px 0;
+        }
+        .info-card p {
+            color: #64748b;
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+        }
+        .info-card ul {
+            padding-left: 20px;
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Buttons */
+        .action-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        .action-btn:hover {
+            background-color: #0ea5e9;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Hi, I'm George Kontrafouris 👋</h1>
+        <p>Student leader, athlete, and debate competitor. I am currently expanding my technical expertise through engineering studies and AI certifications.</p>
+    </section>
+
+    <section id="resume" class="section">
+        <h2 class="section-title">My Journey</h2>
+        <div class="grid-container">
+            
+            <div class="info-card">
+                <h3>📚 Education</h3>
+                <h4>University of the Peloponnese</h4>
+                <p>Integrated Master in Electrical & Computer Engineering (2025 - Present)</p>
+                <ul>
+                    <li>Ranked 7th in National Entrance Exams.</li>
+                    <li>Focusing on systems engineering, software technologies, and foundational engineering principles.</li>
+                </ul>
+
+                <h4>Google AI Specialization</h4>
+                <p>Professional Certificate & AI for App Building (Issued May 2026)</p>
+                <ul>
+                    <li>Comprehensive training focusing on foundational AI implementation and advanced machine learning models for functional software applications.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🏆 Leadership & Athletics</h3>
+                <h4>NE Patron (NEP) – Water Polo Athlete</h4>
+                <p>Active competitor (Current)</p>
+                <ul>
+                    <li>Practicing peak discipline and teamwork. Team ranked among the top 10 in Greece (2022).</li>
+                </ul>
+                
+                <h4>Model United Nations & Debate</h4>
+                <ul>
+                    <li>Represented the Netherlands at MUNUC (2023 & 2024) and France at CUIMUN.</li>
+                    <li>Semi-Finalist (PFAT 2024), 10th Best Team (PFAT 2022), Novice Finalist (Deree Invitational LXI).</li>
+                </ul>
+
+                <h4>President - Student Council</h4>
+                <p>I.M. Panagiotopoulos High School (2024 - 2025)</p>
+            </div>
+
+            <div class="info-card">
+                <h3>💡 Skills</h3>
+                <h4>Soft Skills & Communication</h4>
+                <p>Negotiation, Public Speaking, Debate Strategy, Organized Collaborator, Calm under pressure, Goal-oriented.</p>
+                
+                <h4>Technical & Analytical</h4>
+                <p>Engineering Logic, AI Implementation, System Problem-solving.</p>
+                
+                <h4>Languages</h4>
+                <p>Greek (Native), English (Fluent).</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" class="section" style="background-color: #f1f5f9; max-width: 100%;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title">My Projects</h2>
+            <div class="grid-container">
+                <div class="info-card" style="text-align: center;">
+                    <h3>⚽ World Cup Archive</h3>
+                    <p>A dynamic website displaying matches and scorers of all World Cups (2002-2022), built with HTML, CSS, and JavaScript data filtering.</p>
+                    <a href="https://kontraf.github.io/my-first-website/" target="_blank" class="action-btn">View Live</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section" style="background-color: #e0f2fe; max-width: 100%; text-align: center;">
+        <h2 class="section-title">Let's Connect!</h2>
+        <p style="font-size: 1.1rem; color: #334155; margin-bottom: 25px;">Based in Patras, Greece, but available for exciting projects anywhere.</p>
+        <a href="mailto:georgecontrafouris@gmail.com" class="action-btn" style="font-size: 1.2rem; padding: 15px 30px;">Send me an Email</a>
+    </section>
+
+    <footer>
+        <p>© 2026 - George Kontrafouris</p>
+    </footer>
+
+</body>
+</html>
