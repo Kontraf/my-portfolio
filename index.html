@@ -89,10 +89,14 @@
             padding: 30px;
             box-shadow: 0 10px 15px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .info-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
         }
         .info-card h3 {
             margin-top: 0;
@@ -108,6 +112,7 @@
             color: #64748b;
             margin: 0 0 15px 0;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
         .info-card ul {
             padding-left: 20px;
@@ -125,7 +130,7 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 25px;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
             text-align: center;
         }
         .action-btn:hover {
@@ -164,49 +169,55 @@
         <div class="grid-container">
             
             <div class="info-card">
-                <h3>📚 Education</h3>
-                <h4>University of the Peloponnese</h4>
-                <p>Integrated Master in Electrical & Computer Engineering (2025 - Present)</p>
-                <ul>
-                    <li>Ranked 7th in National Entrance Exams.</li>
-                    <li>Focusing on systems engineering, software technologies, and foundational engineering principles.</li>
-                </ul>
+                <div>
+                    <h3>📚 Education</h3>
+                    <h4>University of the Peloponnese</h4>
+                    <p>Integrated Master in Electrical & Computer Engineering (2025 - Present)</p>
+                    <ul>
+                        <li>Ranked 7th in National Entrance Exams.</li>
+                        <li>Focusing on systems engineering, software technologies, and foundational engineering principles.</li>
+                    </ul>
 
-                <h4>Google AI Specialization</h4>
-                <p>Professional Certificate & AI for App Building (Issued May 2026)</p>
-                <ul>
-                    <li>Comprehensive training focusing on foundational AI implementation and advanced machine learning models for functional software applications.</li>
-                </ul>
+                    <h4>Google AI Specialization</h4>
+                    <p>Professional Certificate & AI for App Building (Issued May 2026)</p>
+                    <ul>
+                        <li>Comprehensive training focusing on foundational AI implementation and advanced machine learning models for functional software applications.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info-card">
-                <h3>🏆 Leadership & Athletics</h3>
-                <h4>NE Patron (NEP) – Water Polo Athlete</h4>
-                <p>Active competitor (Current)</p>
-                <ul>
-                    <li>Practicing peak discipline and teamwork. Team ranked among the top 10 in Greece (2022).</li>
-                </ul>
-                
-                <h4>Model United Nations & Debate</h4>
-                <ul>
-                    <li>Represented the Netherlands at MUNUC (2023 & 2024) and France at CUIMUN.</li>
-                    <li>Semi-Finalist (PFAT 2024), 10th Best Team (PFAT 2022), Novice Finalist (Deree Invitational LXI).</li>
-                </ul>
+                <div>
+                    <h3>🏆 Leadership & Athletics</h3>
+                    <h4>NE Patron (NEP) – Water Polo Athlete</h4>
+                    <p>Active competitor (Current)</p>
+                    <ul>
+                        <li>Practicing peak discipline and teamwork. Team ranked among the top 10 in Greece (2022).</li>
+                    </ul>
+                    
+                    <h4>Model United Nations & Debate</h4>
+                    <ul>
+                        <li>Represented the Netherlands at MUNUC (2023 & 2024) and France at CUIMUN.</li>
+                        <li>Semi-Finalist (PFAT 2024), 10th Best Team (PFAT 2022), Novice Finalist (Deree Invitational LXI).</li>
+                    </ul>
 
-                <h4>President - Student Council</h4>
-                <p>I.M. Panagiotopoulos High School (2024 - 2025)</p>
+                    <h4>President - Student Council</h4>
+                    <p>I.M. Panagiotopoulos High School (2024 - 2025)</p>
+                </div>
             </div>
 
             <div class="info-card">
-                <h3>💡 Skills</h3>
-                <h4>Soft Skills & Communication</h4>
-                <p>Negotiation, Public Speaking, Debate Strategy, Organized Collaborator, Calm under pressure, Goal-oriented.</p>
-                
-                <h4>Technical & Analytical</h4>
-                <p>Engineering Logic, AI Implementation, System Problem-solving.</p>
-                
-                <h4>Languages</h4>
-                <p>Greek (Native), English (Fluent).</p>
+                <div>
+                    <h3>💡 Skills</h3>
+                    <h4>Soft Skills & Communication</h4>
+                    <p>Negotiation, Public Speaking, Debate Strategy, Organized Collaborator, Calm under pressure, Goal-oriented.</p>
+                    
+                    <h4>Technical & Analytical</h4>
+                    <p>Engineering Logic, AI Implementation, System Problem-solving.</p>
+                    
+                    <h4>Languages</h4>
+                    <p>Greek (Native), English (Fluent).</p>
+                </div>
             </div>
 
         </div>
@@ -216,11 +227,39 @@
         <div style="max-width: 1000px; margin: 0 auto;">
             <h2 class="section-title">My Projects</h2>
             <div class="grid-container">
+                
                 <div class="info-card" style="text-align: center;">
-                    <h3>⚽ World Cup Archive</h3>
-                    <p>A dynamic website displaying matches and scorers of all World Cups (2002-2022), built with HTML, CSS, and JavaScript data filtering.</p>
+                    <div>
+                        <h3>⚽ World Cup Archive</h3>
+                        <p>A dynamic website displaying matches and scorers of all World Cups (2002-2022), built with HTML, CSS, and JavaScript data filtering.</p>
+                    </div>
                     <a href="https://kontraf.github.io/my-first-website/" target="_blank" class="action-btn">View Live</a>
                 </div>
+
+                <div class="info-card" style="text-align: center;">
+                    <div>
+                        <h3>⚡ AI Prompt Craft</h3>
+                        <p>A high-tech terminal prompt generator designed to craft optimized prompts for LLMs (ChatGPT, Gemini, Claude) based on roles and tones.</p>
+                    </div>
+                    <a href="https://kontraf.github.io/prompt-generator/" target="_blank" class="action-btn">View Live</a>
+                </div>
+
+                <div class="info-card" style="text-align: center;">
+                    <div>
+                        <h3>🤽‍♂️ Tactics Board</h3>
+                        <p>A mobile-responsive interactive whiteboard allowing users to drag and drop players and the ball to design tactical plays in a virtual pool.</p>
+                    </div>
+                    <a href="https://kontraf.github.io/waterpolo-tactics/" target="_blank" class="action-btn">View Live</a>
+                </div>
+
+                <div class="info-card" style="text-align: center;">
+                    <div>
+                        <h3>📊 Progress Tracker</h3>
+                        <p>An interactive statistics dashboard monitoring academic credentials, technical skills, and projects, built with Chart.js integration.</p>
+                    </div>
+                    <a href="https://kontraf.github.io/progress-tracker/" target="_blank" class="action-btn">View Live</a>
+                </div>
+
             </div>
         </div>
     </section>
