@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>George Kontrafouris – Portfolio</title>
-    <meta name="description" content="George Kontrafouris is an electrical and computer engineering student in Patras. He builds web apps and trading tools, and runs Humale, a wellbeing site for men in midlife.">
-    <meta name="theme-color" content="#121513">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121513'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='700' text-anchor='middle' fill='%237db0d4'%3EK%3C/text%3E%3C/svg%3E">
+    <meta name="description" content="George Kontrafouris is an electrical and computer engineering student in Patras. He builds web apps and trading tools, and manages Humale, a wellbeing site for men in midlife.">
+    <meta name="theme-color" content="#0f1211">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f2b33d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='700' text-anchor='middle' fill='%230f1211'%3EK%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --paper: #121513;
-            --paper-deep: #1a1e1c;
-            --ink: #ebe9e4;
-            --ink-soft: #9aa29d;
-            --water: #7db0d4;
-            --lane: #7db0d4;
+            --bg: #0f1211;
+            --surface: #181c1a;
+            --text: #ebe9e4;
+            --muted: #9aa29d;
             --line: #2a302d;
+            --on-color: #101312;
+
+            --amber: #f2b33d;
+            --violet: #9d8cff;
+            --green: #5fd08b;
+            --blue: #5aa9f0;
+            --coral: #ff7a59;
+            --lime: #c9e265;
+            --pink: #f58fb6;
+            --teal: #3fc8c0;
+            --peach: #ffc4a3;
+            --sand: #e5e1d8;
+            --peri: #b9c4ff;
 
             --sans: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
             --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
 
-            --gutter: 20px;
-            --max: 1080px;
+            --gutter: 16px;
+            --max: 1120px;
         }
 
         *, *::before, *::after { box-sizing: border-box; }
@@ -37,22 +48,21 @@
 
         body {
             margin: 0;
-            background: var(--paper);
-            color: var(--ink);
+            background: var(--bg);
+            color: var(--text);
             font-family: var(--sans);
             font-size: 1rem;
-            line-height: 1.55;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
 
-        ::selection { background: var(--water); color: var(--paper); }
+        ::selection { background: var(--amber); color: var(--on-color); }
 
         a { color: inherit; }
-
         a:focus-visible {
-            outline: 3px solid var(--lane);
+            outline: 3px solid #fff;
             outline-offset: 3px;
-            border-radius: 2px;
+            border-radius: 4px;
         }
 
         .wrap {
@@ -67,7 +77,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: var(--paper);
+            background: var(--bg);
             border-bottom: 1px solid var(--line);
         }
         .site-header .wrap {
@@ -76,65 +86,47 @@
             justify-content: space-between;
             height: 56px;
         }
-        .brand {
-            font-weight: 800;
-            font-size: 1.05rem;
-            letter-spacing: -0.01em;
-            text-decoration: none;
-        }
-        .site-nav {
-            display: flex;
-            gap: 20px;
-        }
+        .brand { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; }
+        .site-nav { display: flex; gap: 18px; }
         .site-nav a {
             font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
-            color: var(--ink-soft);
+            color: var(--muted);
             padding: 8px 0;
         }
-        .site-nav a:hover { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--lane); }
+        .site-nav a:hover { color: var(--text); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--amber); }
 
         /* ---------- Hero ---------- */
-        .hero {
-            padding: 56px 0 40px;
-        }
+        .hero { padding: 48px var(--gutter) 36px; }
         .hero h1 {
             margin: 0;
             font-weight: 800;
-            font-size: clamp(2.9rem, 13vw, 7.2rem);
+            font-size: clamp(2.7rem, 12.5vw, 7.4rem);
             line-height: 0.92;
             letter-spacing: -0.035em;
-            font-variation-settings: 'wdth' 100;
         }
-        .hero h1 .last { display: block; }
+        .hero h1 span { display: block; }
         .hero .intro {
-            margin: 28px 0 0;
+            margin: 26px 0 0;
             max-width: 34em;
             font-family: var(--serif);
             font-size: clamp(1.2rem, 4.6vw, 1.6rem);
             line-height: 1.4;
-            color: var(--ink);
         }
-        .hero-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 24px;
-            margin-top: 28px;
-            font-weight: 600;
-        }
+        .hero-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-weight: 600; }
         .btn {
             display: inline-flex;
             align-items: center;
             min-height: 48px;
             padding: 0 22px;
-            background: var(--ink);
-            color: var(--paper);
+            background: var(--amber);
+            color: var(--on-color);
             text-decoration: none;
             border-radius: 999px;
-            font-weight: 600;
+            font-weight: 800;
         }
-        .btn:hover { background: var(--water); }
+        .btn:hover { background: var(--lime); }
         .text-link {
             display: inline-flex;
             align-items: center;
@@ -144,141 +136,142 @@
             text-underline-offset: 5px;
             text-decoration-color: var(--line);
         }
-        .text-link:hover { text-decoration-color: var(--lane); }
+        .text-link:hover { text-decoration-color: var(--amber); }
 
-        /* Lane rope: the one decorative motif, borrowed from the pool */
+        /* Lane rope: pool divider, coloured like the project tiles */
         .lane {
             height: 10px;
             border-radius: 999px;
-            background: repeating-linear-gradient(90deg, var(--water) 0 22px, var(--line) 22px 44px);
+            background: repeating-linear-gradient(90deg,
+                var(--amber) 0 28px, var(--violet) 28px 56px, var(--green) 56px 84px,
+                var(--blue) 84px 112px, var(--coral) 112px 140px, var(--lime) 140px 168px,
+                var(--pink) 168px 196px, var(--teal) 196px 224px);
         }
 
         /* ---------- Sections ---------- */
-        section { padding: 56px 0 8px; }
-
-        .section-head {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 20px;
-        }
+        section { padding: 52px 0 0; }
+        .section-head { margin-bottom: 18px; }
         h2 {
             margin: 0;
             font-weight: 800;
-            font-size: clamp(1.8rem, 7vw, 2.6rem);
+            font-size: clamp(1.8rem, 7vw, 2.8rem);
             letter-spacing: -0.025em;
             line-height: 1.05;
         }
         .section-head p {
-            margin: 0;
+            margin: 8px 0 0;
             max-width: 36em;
             font-family: var(--serif);
             font-size: 1.1rem;
-            color: var(--ink-soft);
+            color: var(--muted);
         }
 
-        /* ---------- Project rows ---------- */
-        .projects { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink-soft); }
-
-        .project {
+        /* ---------- Bento grid ---------- */
+        .bento {
             display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 10px;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--line);
         }
-        .project h3 {
-            margin: 0;
-            font-size: 1.5rem;
+
+        .tile {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            min-height: 190px;
+            padding: 16px;
+            border-radius: 20px;
+            background: var(--c, var(--surface));
+            color: var(--on-color);
+            text-decoration: none;
+            overflow-wrap: break-word;
+        }
+        .tile.big { grid-column: span 2; min-height: 250px; }
+
+        .tile h3 {
+            margin: 0 0 8px;
+            padding-right: 22px;
             font-weight: 800;
-            letter-spacing: -0.02em;
+            font-size: 1.05rem;
             line-height: 1.1;
+            letter-spacing: -0.02em;
         }
-        .project h3 a { text-decoration: none; }
-        /* whole row is tappable */
-        .project h3 a::after { content: ''; position: absolute; inset: 0; }
-        .project { position: relative; }
-        .project:hover { background: var(--paper-deep); }
-        .project:hover h3 a { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px; text-decoration-color: var(--lane); }
-
-        .project .what {
+        .tile.big h3 { font-size: 1.9rem; padding-right: 34px; }
+        .tile.wide { grid-column: span 2; }
+        .tile .what {
             margin: 0;
             font-family: var(--serif);
-            font-size: 1.08rem;
-            line-height: 1.5;
-            color: var(--ink);
-            max-width: 38em;
+            font-size: 0.98rem;
+            line-height: 1.38;
         }
-        .project .stack {
+        .tile.big .what { font-size: 1.1rem; max-width: 30em; }
+        .tile .stack {
             margin: 0;
-            font-size: 0.88rem;
-            color: var(--ink-soft);
-        }
-        .project .go {
-            font-size: 0.92rem;
+            font-size: 0.78rem;
             font-weight: 600;
-            color: var(--water);
+            line-height: 1.35;
+            color: rgba(16, 19, 18, 0.78);
         }
-        .project .go span { text-decoration: underline; text-underline-offset: 4px; }
+        .tile.big .stack { font-size: 0.88rem; }
 
-        .projects.small .project { padding: 18px 0; }
-        .projects.small h3 { font-size: 1.2rem; }
+        .tile .arrow {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 18px;
+            height: 18px;
+            transition: transform 0.2s ease;
+        }
+        a.tile:hover .arrow { transform: translate(3px, -3px); }
+        a.tile:hover h3 { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px; }
 
-        .subhead {
-            margin: 48px 0 14px;
-            font-size: 1.15rem;
-            font-weight: 800;
-            letter-spacing: -0.01em;
+        /* Background tiles: dark surface, own colour per heading */
+        .tile.info {
+            grid-column: span 2;
+            min-height: 0;
+            justify-content: flex-start;
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--line);
         }
-
-        /* ---------- Background ---------- */
-        .facts { margin: 0; border-top: 1px solid var(--ink-soft); }
-        .fact {
-            display: grid;
-            gap: 6px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--line);
-        }
-        .fact dt {
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: -0.01em;
-        }
-        .fact dd { margin: 0; }
-        .fact dd p {
-            margin: 0 0 10px;
+        .tile.info h3 { color: var(--c); font-size: 1.3rem; padding-right: 0; margin-bottom: 10px; }
+        .tile.info p {
+            margin: 0 0 8px;
             font-family: var(--serif);
-            font-size: 1.08rem;
-            line-height: 1.5;
-            max-width: 38em;
+            font-size: 1.05rem;
+            line-height: 1.45;
         }
-        .fact dd p:last-child { margin-bottom: 0; }
-        .fact .when { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); }
+        .tile.info p:last-child { margin-bottom: 0; }
+        .tile.info .when { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
 
         /* ---------- Contact ---------- */
         .contact { padding-bottom: 56px; }
-        .contact p {
-            margin: 12px 0 24px;
-            max-width: 30em;
-            font-family: var(--serif);
-            font-size: 1.2rem;
-            line-height: 1.45;
+        .tile.contact-tile {
+            grid-column: span 2;
+            min-height: 260px;
+            text-decoration: none;
         }
-        .contact .mail {
-            display: inline-block;
+        .contact-tile p {
+            margin: 0;
+            max-width: 26em;
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            line-height: 1.4;
+        }
+        .contact-tile .mail {
             font-weight: 800;
-            font-size: clamp(1.05rem, 5.2vw, 1.8rem);
-            letter-spacing: -0.02em;
-            overflow-wrap: anywhere;
+            font-size: clamp(1rem, 4.8vw, 2.6rem);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
             text-decoration: underline;
             text-decoration-thickness: 3px;
-            text-underline-offset: 7px;
-            text-decoration-color: var(--lane);
+            text-underline-offset: 6px;
         }
-        .contact .mail:hover { color: var(--water); }
 
         /* ---------- Footer ---------- */
-        footer { padding: 24px 0 40px; font-size: 0.9rem; color: var(--ink-soft); }
-        footer .wrap { padding-top: 24px; }
+        footer { padding: 8px 0 40px; font-size: 0.9rem; color: var(--muted); }
+        footer .lane { margin-bottom: 22px; }
 
         /* ---------- Wider screens ---------- */
         @media (min-width: 760px) {
@@ -287,36 +280,42 @@
             .site-header .wrap { height: 64px; }
             .site-nav { gap: 32px; }
 
-            .hero { padding: 96px 0 64px; }
+            .hero { padding: 88px var(--gutter) 56px; }
+            section { padding: 88px 0 0; }
+            .section-head { margin-bottom: 26px; }
 
-            section { padding: 88px 0 8px; }
-            .section-head { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 40px; margin-bottom: 28px; }
-            .section-head p { text-align: right; }
+            .bento { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; }
 
-            .project {
-                grid-template-columns: 5fr 7fr;
-                column-gap: 40px;
-                row-gap: 8px;
-                padding: 32px 0;
-            }
-            .project:hover { box-shadow: -12px 0 0 var(--paper-deep), 12px 0 0 var(--paper-deep); }
-            .project h3 { font-size: 1.9rem; grid-column: 1; }
-            .project .what { grid-column: 2; grid-row: 1 / span 2; }
-            .project .stack { grid-column: 1; }
-            .project .go { grid-column: 2; }
+            .tile { grid-column: span var(--s, 4); min-height: 210px; padding: 24px; border-radius: 24px; }
+            .tile.big { grid-column: span var(--s, 6); min-height: 300px; }
+            .tile.wide { grid-column: span var(--s, 6); }
+            .tile.big h3 { font-size: 2.4rem; }
+            .tile h3 { font-size: 1.4rem; padding-right: 34px; }
+            .tile .what { font-size: 1.02rem; }
+            .tile.big .what { font-size: 1.2rem; }
+            .tile .stack { font-size: 0.85rem; }
+            .tile.big .stack { font-size: 0.95rem; }
+            .tile .arrow { top: 22px; right: 22px; width: 26px; height: 26px; }
 
-            .projects.small .project { padding: 22px 0; }
-            .projects.small h3 { font-size: 1.3rem; }
+            .tile.info { grid-column: span var(--s, 6); min-height: 0; }
+            .tile.info h3 { font-size: 1.5rem; }
+            .tile.info p { font-size: 1.1rem; }
 
-            .fact { grid-template-columns: 5fr 7fr; column-gap: 40px; padding: 28px 0; }
+            .tile.contact-tile { grid-column: span 12; min-height: 300px; }
+            .contact-tile p { font-size: 1.3rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
+            .tile .arrow { transition: none; }
         }
     </style>
 </head>
 <body>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </svg>
 
     <header class="site-header">
         <div class="wrap">
@@ -332,8 +331,8 @@
     <main id="top">
 
         <div class="wrap hero">
-            <h1>George <span class="last">Kontrafouris</span></h1>
-            <p class="intro">I'm an electrical and computer engineering student in Patras. I build web apps and trading tools, run a wellbeing site for men in midlife, and play water polo.</p>
+            <h1><span>George</span><span>Kontrafouris</span></h1>
+            <p class="intro">I'm an electrical and computer engineering student in Patras. I build web apps and trading tools, manage a wellbeing site for men in midlife, and play water polo.</p>
             <div class="hero-links">
                 <a class="btn" href="mailto:georgecontrafouris@gmail.com">Email me</a>
                 <a class="text-link" href="https://github.com/Kontraf" target="_blank" rel="noopener">GitHub</a>
@@ -347,78 +346,102 @@
             <div class="wrap">
                 <div class="section-head">
                     <h2>Projects</h2>
-                    <p>Three bigger ones I keep working on, and a few smaller tools.</p>
+                    <p>Tap any tile to open it.</p>
                 </div>
 
-                <ul class="projects">
-                    <li class="project">
-                        <h3><a href="https://humale.eu" target="_blank" rel="noopener">Humale</a></h3>
+                <div class="bento">
+
+                    <a class="tile big" style="--c: var(--amber); --s: 7" href="https://humale.eu" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Humale</h3>
+                            <p class="what">A wellbeing site for men in midlife. Articles cover physical health, identity, mental health and responsibility, in plain language. I manage the website.</p>
+                        </div>
                         <p class="stack">Web manager</p>
-                        <p class="what">A wellbeing site for men in midlife. Articles cover physical health, identity, mental health and responsibility, in plain language. I manage the website.</p>
-                        <span class="go"><span>Visit humale.eu</span></span>
-                    </li>
+                    </a>
 
-                    <li class="project">
-                        <h3><a href="https://presentation-maker-xi.vercel.app/" target="_blank" rel="noopener">Presentation Maker</a></h3>
+                    <a class="tile big" style="--c: var(--violet); --s: 5" href="https://presentation-maker-xi.vercel.app/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Presentation Maker</h3>
+                            <p class="what">Type a topic and get a full slide deck, with layouts and matching stock photos. Exports a PowerPoint file in one click.</p>
+                        </div>
                         <p class="stack">Next.js, React, Gemini API, Unsplash API, PptxGenJS, Tailwind CSS</p>
-                        <p class="what">Type a topic and get a full slide deck, with layouts and matching stock photos. It detects the language you write in and exports a PowerPoint file in one click.</p>
-                        <span class="go"><span>Open the app</span></span>
-                    </li>
+                    </a>
 
-                    <li class="project">
-                        <h3><a href="https://mygridboy.onrender.com/" target="_blank" rel="noopener">Grid Trading Bot</a></h3>
-                        <p class="stack">Node.js, Express, CCXT, WebSockets, Binance Testnet, Tailwind CSS</p>
-                        <p class="what">A simulator that runs grid trading on the Binance Spot Testnet. It tracks orders live over WebSockets and sets the grid range from 4-hour pivot points. Visitors can open a view-only mode to watch live profit and loss without touching the settings.</p>
-                        <span class="go"><span>Open the dashboard</span></span>
-                    </li>
-                </ul>
+                    <a class="tile big" style="--c: var(--green); --s: 5" href="https://mygridboy.onrender.com/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Grid Trading Bot</h3>
+                            <p class="what">Simulated grid trading on the Binance Spot Testnet, with live order tracking. A view-only mode lets visitors watch profit and loss without touching the settings.</p>
+                        </div>
+                        <p class="stack">Node.js, Express, CCXT, WebSockets, Tailwind CSS</p>
+                    </a>
 
-                <h3 class="subhead">Smaller tools</h3>
-
-                <ul class="projects small">
-                    <li class="project">
-                        <h3><a href="https://kontraf.github.io/waterpolo-tactics/" target="_blank" rel="noopener">Tactics Board</a></h3>
+                    <a class="tile" style="--c: var(--blue); --s: 4" href="https://kontraf.github.io/waterpolo-tactics/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Tactics Board</h3>
+                            <p class="what">Drag players and the ball around a pool to draw out plays. Works with a finger on a phone.</p>
+                        </div>
                         <p class="stack">JavaScript, touch events</p>
-                        <p class="what">Drag players and the ball around a pool to draw out plays. Works with a finger on a phone.</p>
-                        <span class="go"><span>Open</span></span>
-                    </li>
-                    <li class="project">
-                        <h3><a href="https://kontraf.github.io/waterpolo-tracker/" target="_blank" rel="noopener">Live Stat Tracker</a></h3>
+                    </a>
+
+                    <a class="tile" style="--c: var(--coral); --s: 3" href="https://kontraf.github.io/waterpolo-tracker/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Live Stat Tracker</h3>
+                            <p class="what">Log game events on your phone during a match, then export the match sheet to CSV.</p>
+                        </div>
                         <p class="stack">Tailwind CSS, JavaScript</p>
-                        <p class="what">Coaches log game events on their phone during a match, then export the match sheet to CSV or Excel.</p>
-                        <span class="go"><span>Open</span></span>
-                    </li>
-                    <li class="project">
-                        <h3><a href="https://kontraf.github.io/World-Cup-Archive/" target="_blank" rel="noopener">World Cup Archive</a></h3>
+                    </a>
+
+                    <a class="tile" style="--c: var(--lime); --s: 4" href="https://kontraf.github.io/World-Cup-Archive/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>World Cup Archive</h3>
+                            <p class="what">Matches, stats and scorers from every World Cup between 2002 and 2022, with filters.</p>
+                        </div>
                         <p class="stack">HTML, CSS, JavaScript</p>
-                        <p class="what">Matches, stats and scorers from every World Cup between 2002 and 2022, with filters.</p>
-                        <span class="go"><span>Open</span></span>
-                    </li>
-                    <li class="project">
-                        <h3><a href="https://kontraf.github.io/debate-case-constructor/" target="_blank" rel="noopener">Debate Case Constructor</a></h3>
+                    </a>
+
+                    <a class="tile" style="--c: var(--pink); --s: 4" href="https://kontraf.github.io/debate-case-constructor/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Debate Case Constructor</h3>
+                            <p class="what">Build structured S-E-X-I arguments for a debate round and export them as speech cards.</p>
+                        </div>
                         <p class="stack">Puter.js, Tailwind CSS</p>
-                        <p class="what">Helps you build structured S-E-X-I arguments for a debate round and export them as speech cards.</p>
-                        <span class="go"><span>Open</span></span>
-                    </li>
-                    <li class="project">
-                        <h3><a href="https://kontraf.github.io/progress-tracker/" target="_blank" rel="noopener">Progress Tracker</a></h3>
+                    </a>
+
+                    <a class="tile" style="--c: var(--teal); --s: 4" href="https://kontraf.github.io/progress-tracker/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Progress Tracker</h3>
+                            <p class="what">A dashboard that charts my academic goals, skills and project status.</p>
+                        </div>
                         <p class="stack">Chart.js</p>
-                        <p class="what">A dashboard that charts my academic goals, skills and project status.</p>
-                        <span class="go"><span>Open</span></span>
-                    </li>
-                    <li class="project">
-                        <h3><a href="https://kontraf.github.io/audio-visualizer/" target="_blank" rel="noopener">Audio Visualizer</a></h3>
+                    </a>
+
+                    <a class="tile" style="--c: var(--peach); --s: 6" href="https://kontraf.github.io/audio-visualizer/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Audio Visualizer</h3>
+                            <p class="what">Runs a Fast Fourier Transform on live audio and draws the frequency spectrum at 60 frames per second.</p>
+                        </div>
                         <p class="stack">Web Audio API, Canvas</p>
-                        <p class="what">Runs a Fast Fourier Transform on live audio and draws the frequency spectrum at 60 frames per second.</p>
-                        <span class="go"><span>Open</span></span>
-                    </li>
-                    <li class="project">
-                        <h3><a href="https://kontraf.github.io/prompt-generator/" target="_blank" rel="noopener">Prompt Generator</a></h3>
+                    </a>
+
+                    <a class="tile wide" style="--c: var(--sand); --s: 6" href="https://kontraf.github.io/prompt-generator/" target="_blank" rel="noopener">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h3>Prompt Generator</h3>
+                            <p class="what">A terminal-style tool for writing and formatting system prompts for language models.</p>
+                        </div>
                         <p class="stack">HTML, CSS, JavaScript</p>
-                        <p class="what">A terminal-style tool for writing and formatting system prompts for language models.</p>
-                        <span class="go"><span>Open</span></span>
-                    </li>
-                </ul>
+                    </a>
+
+                </div>
             </div>
         </section>
 
@@ -428,56 +451,60 @@
                     <h2>Background</h2>
                 </div>
 
-                <dl class="facts">
-                    <div class="fact">
-                        <dt>Education</dt>
-                        <dd>
-                            <p>Integrated Master's in Electrical and Computer Engineering, University of the Peloponnese.</p>
-                            <p class="when">2025 to present. Ranked 7th in the national entrance exams.</p>
-                            <p>Focus on software, systems engineering and the foundations of computing.</p>
-                            <p>Google AI Specialization: Professional Certificate and AI for App Building, issued May 2026.</p>
-                        </dd>
+                <div class="bento">
+                    <div class="tile info" style="--c: var(--amber); --s: 7">
+                        <h3>Education</h3>
+                        <p>Integrated Master's in Electrical and Computer Engineering, University of the Peloponnese.</p>
+                        <p class="when">2025 to present. Ranked 7th in the national entrance exams.</p>
+                        <p>Focus on software, systems engineering and the foundations of computing.</p>
+                        <p>Google AI Specialization: Professional Certificate and AI for App Building, issued May 2026.</p>
                     </div>
-                    <div class="fact">
-                        <dt>Water polo</dt>
-                        <dd>
-                            <p>Currently playing for NE Patron (NEP). My team ranked among the top 10 in Greece in 2022.</p>
-                        </dd>
+
+                    <div class="tile info" style="--c: var(--blue); --s: 5">
+                        <h3>Water polo</h3>
+                        <p>Currently playing for NE Patron (NEP). My team ranked among the top 10 in Greece in 2022.</p>
                     </div>
-                    <div class="fact">
-                        <dt>Debate and Model UN</dt>
-                        <dd>
-                            <p>Represented the Netherlands at MUNUC in 2023 and 2024, and France at CUIMUN.</p>
-                            <p>Semi-finalist at PFAT 2024, 10th best team at PFAT 2022, novice finalist at the Deree Invitational LXI.</p>
-                        </dd>
+
+                    <div class="tile info" style="--c: var(--pink); --s: 7">
+                        <h3>Debate and Model UN</h3>
+                        <p>Represented the Netherlands at MUNUC in 2023 and 2024, and France at CUIMUN.</p>
+                        <p>Semi-finalist at PFAT 2024, 10th best team at PFAT 2022, novice finalist at the Deree Invitational LXI.</p>
                     </div>
-                    <div class="fact">
-                        <dt>Student Council</dt>
-                        <dd>
-                            <p>President at I.M. Panagiotopoulos High School.</p>
-                            <p class="when">2024 to 2025</p>
-                        </dd>
+
+                    <div class="tile info" style="--c: var(--lime); --s: 5">
+                        <h3>Student Council</h3>
+                        <p>President at I.M. Panagiotopoulos High School.</p>
+                        <p class="when">2024 to 2025</p>
                     </div>
-                    <div class="fact">
-                        <dt>Skills</dt>
-                        <dd>
-                            <p>Engineering logic, real-time systems, signal processing and applying AI in apps.</p>
-                            <p>Negotiation, public speaking and debate strategy.</p>
-                        </dd>
+
+                    <div class="tile info" style="--c: var(--teal); --s: 7">
+                        <h3>Skills</h3>
+                        <p>Engineering logic, real-time systems, signal processing and applying AI in apps.</p>
+                        <p>Negotiation, public speaking and debate strategy.</p>
                     </div>
-                    <div class="fact">
-                        <dt>Languages</dt>
-                        <dd><p>Greek (native), English (fluent).</p></dd>
+
+                    <div class="tile info" style="--c: var(--violet); --s: 5">
+                        <h3>Languages</h3>
+                        <p>Greek (native), English (fluent).</p>
                     </div>
-                </dl>
+                </div>
             </div>
         </section>
 
         <section id="contact" class="contact">
             <div class="wrap">
-                <h2>Contact</h2>
-                <p>I'm in Patras, Greece, and open to engineering and web projects anywhere. Email is the quickest way to reach me.</p>
-                <a class="mail" href="mailto:georgecontrafouris@gmail.com">georgecontrafouris@gmail.com</a>
+                <div class="bento">
+                    <a class="tile contact-tile" style="--c: var(--peri)" href="mailto:georgecontrafouris@gmail.com">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+                        <div>
+                            <h2>Contact</h2>
+                        </div>
+                        <div>
+                            <p>I'm in Patras, Greece, and open to engineering and web projects anywhere. Email is the quickest way to reach me.</p>
+                            <span class="mail" style="display:block; margin-top:14px;">georgecontrafouris@gmail.com</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -485,7 +512,7 @@
 
     <footer>
         <div class="wrap">
-            <div class="lane" role="presentation" style="margin-bottom: 24px;"></div>
+            <div class="lane" role="presentation"></div>
             <span>© 2026 George Kontrafouris</span>
         </div>
     </footer>
