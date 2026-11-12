@@ -172,7 +172,7 @@
             padding: 12px;
             border-radius: 20px;
             background: var(--c);
-            color: var(--on-color);
+            color: var(--fg, var(--on-color));
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -263,7 +263,7 @@
             margin-bottom: 20px;
             border-radius: 16px;
             background: var(--c);
-            color: var(--on-color);
+            color: var(--fg, var(--on-color));
         }
         .service .icon svg { width: 28px; height: 28px; }
         .service h3 { margin: 0 0 8px; font-size: 1.35rem; letter-spacing: -0.02em; }
@@ -324,7 +324,7 @@
             padding: 26px;
             border-radius: 28px;
             background: var(--c);
-            color: var(--on-color);
+            color: var(--fg, var(--on-color));
             text-decoration: none;
             overflow: hidden;
         }
@@ -343,10 +343,13 @@
         .tags span {
             padding: 5px 13px;
             border-radius: 999px;
-            border: 1.5px solid rgba(21, 22, 26, 0.45);
+            border: 1.5px solid color-mix(in srgb, currentColor 45%, transparent);
             font-size: 0.82rem;
             font-weight: 700;
         }
+        .project .logo { display: block; height: 76px; width: auto; max-width: 180px; margin-bottom: 20px; object-fit: contain; object-position: left center; }
+        .card .logo { display: block; height: 44px; margin-bottom: 8px; width: auto; max-width: 90px; object-fit: contain; object-position: left center; }
+        .pcard .logo { height: 30px; width: auto; max-width: 90px; margin-bottom: 8px; object-fit: contain; object-position: left center; }
         .more { margin-top: 30px; text-align: center; }
 
         /* ---------- Background ---------- */
@@ -467,8 +470,8 @@
             <div class="cards" aria-hidden="false">
                 <a class="card" href="https://humale.eu" target="_blank" rel="noopener"><b>Humale</b><small>Wellbeing for men in midlife</small></a>
                 <a class="card" href="https://presentation-maker-xi.vercel.app/" target="_blank" rel="noopener"><b>Presentation Maker</b><small>Topic in, slide deck out</small></a>
-                <a class="card" href="https://mygridboy.onrender.com/" target="_blank" rel="noopener"><b>Grid Trading Bot</b><small>Live on Binance Testnet</small></a>
-                <a class="card" href="https://airrion.gr" target="_blank" rel="noopener"><b>Airrion</b><small>Student wind turbine team</small></a>
+                <a class="card" style="--c: #34d399" href="https://mygridboy.onrender.com/" target="_blank" rel="noopener"><b>Grid Trading Bot</b><small>Live on Binance Testnet</small></a>
+                <a class="card" style="--c: #962f33; --fg: #f8f4ea" href="https://airrion.gr" target="_blank" rel="noopener"><span><img class="logo" src="assets/airrion-logo.svg" alt="Airrion logo"><b>Airrion</b></span><small>Student wind turbine team</small></a>
             </div>
         </div>
 
@@ -539,8 +542,8 @@
                     <div class="track">
                         <a class="pcard" style="--c: var(--amber)" href="https://humale.eu" target="_blank" rel="noopener"><b>Humale</b><small>Wellbeing site for men in midlife</small></a>
                         <a class="pcard" style="--c: var(--violet)" href="https://presentation-maker-xi.vercel.app/" target="_blank" rel="noopener"><b>Presentation Maker</b><small>Next.js, Gemini API, PptxGenJS</small></a>
-                        <a class="pcard" style="--c: var(--green)" href="https://mygridboy.onrender.com/" target="_blank" rel="noopener"><b>Grid Trading Bot</b><small>Node.js, CCXT, WebSockets</small></a>
-                        <a class="pcard" style="--c: var(--teal)" href="https://airrion.gr" target="_blank" rel="noopener"><b>Airrion</b><small>Node.js, Express, EJS, SQLite</small></a>
+                        <a class="pcard" style="--c: #34d399" href="https://mygridboy.onrender.com/" target="_blank" rel="noopener"><b>Grid Trading Bot</b><small>Node.js, CCXT, WebSockets</small></a>
+                        <a class="pcard" style="--c: #962f33; --fg: #f8f4ea" href="https://airrion.gr" target="_blank" rel="noopener"><span><img class="logo" src="assets/airrion-logo.svg" alt="Airrion logo"><b>Airrion</b></span><small>Node.js, Express, EJS, SQLite</small></a>
                         <a class="pcard" style="--c: var(--blue)" href="https://kontraf.github.io/waterpolo-tactics/" target="_blank" rel="noopener"><b>Tactics Board</b><small>JavaScript, touch events</small></a>
                         <a class="pcard" style="--c: var(--coral)" href="https://kontraf.github.io/waterpolo-tracker/" target="_blank" rel="noopener"><b>Live Stat Tracker</b><small>Tailwind CSS, JavaScript</small></a>
                         <a class="pcard" style="--c: var(--lime)" href="https://kontraf.github.io/World-Cup-Archive/" target="_blank" rel="noopener"><b>World Cup Archive</b><small>HTML, CSS, JavaScript</small></a>
@@ -598,7 +601,7 @@
                         </div>
                         <div class="tags"><span>Next.js</span><span>Gemini API</span><span>PptxGenJS</span><span>Tailwind CSS</span></div>
                     </a>
-                    <a class="project" style="--c: var(--green)" href="https://mygridboy.onrender.com/" target="_blank" rel="noopener">
+                    <a class="project" style="--c: #34d399" href="https://mygridboy.onrender.com/" target="_blank" rel="noopener">
                         <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
                         <div>
                             <h3>Grid Trading Bot</h3>
@@ -606,9 +609,10 @@
                         </div>
                         <div class="tags"><span>Node.js</span><span>Express</span><span>CCXT</span><span>WebSockets</span></div>
                     </a>
-                    <a class="project" style="--c: var(--teal)" href="https://airrion.gr" target="_blank" rel="noopener">
+                    <a class="project" style="--c: #962f33; --fg: #f8f4ea" href="https://airrion.gr" target="_blank" rel="noopener">
                         <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
                         <div>
+                            <img class="logo" src="assets/airrion-logo.svg" alt="Airrion logo">
                             <h3>Airrion</h3>
                             <p>The website of Airrion, a University of Patras student initiative that designs and builds a wind turbine. News, team, sponsors and gallery in Greek and English, with an admin panel for managing the content.</p>
                         </div>
