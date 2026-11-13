@@ -778,11 +778,11 @@
                 document.querySelectorAll('.themes button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.theme === t)); });
             }
             var saved = 'graphite';
-            try { saved = localStorage.getItem('theme') || 'graphite'; } catch (e) {}
+            try { localStorage.removeItem('theme'); } catch (e) {}
             var q = /[?&]theme=([a-z]+)/.exec(location.search); if (q) saved = q[1];
             apply(saved);
             document.querySelectorAll('.themes button').forEach(function (b) {
-                b.addEventListener('click', function () { apply(b.dataset.theme); try { localStorage.setItem('theme', b.dataset.theme); } catch (e) {} });
+                b.addEventListener('click', function () { apply(b.dataset.theme); });
             });
         })();
     </script>
