@@ -48,6 +48,7 @@
         :root[data-theme="forest"]   { --bg:#0e1612; --bg-rgb:14,22,18; --surface:#151f1a; --surface-2:#1c2a23; --line:#24342b; --text:#edf3ee; --muted:#9bb0a2; --accent:#8fe0a0; }
         :root[data-theme="espresso"] { --bg:#1a1411; --bg-rgb:26,20,17; --surface:#241c17; --surface-2:#2d231d; --line:#392d25; --text:#f6efe7; --muted:#b6a698; --accent:#f0a55a; }
         :root[data-theme="plum"]     { --bg:#16101e; --bg-rgb:22,16,30; --surface:#20172b; --surface-2:#291e37; --line:#352845; --text:#f4eefb; --muted:#aa9ec0; --accent:#c9a3ff; }
+        :root[data-theme="gray"]     { --bg:#1c1d20; --bg-rgb:28,29,32; --surface:#26272b; --surface-2:#2f3035; --line:#3a3b41; --text:#f2f2f3; --muted:#aeb0b6; --accent:#d7dae0; }
         :root[data-theme="ocean"]    { --bg:#0b1519; --bg-rgb:11,21,25; --surface:#121f25; --surface-2:#192a32; --line:#213640; --text:#ebf4f5; --muted:#94adb3; --accent:#4fd1c5; }
 
         *, *::before, *::after { box-sizing: border-box; }
@@ -758,6 +759,7 @@
     <div class="themes" role="group" aria-label="Colour theme">
         <span>Theme</span>
         <button type="button" data-theme="graphite" style="--sw-bg:#17181c;--sw-ac:#f2b33d" aria-label="Graphite" title="Graphite"></button>
+        <button type="button" data-theme="gray" style="--sw-bg:#1c1d20;--sw-ac:#d7dae0" aria-label="Gray" title="Gray"></button>
         <button type="button" data-theme="midnight" style="--sw-bg:#0d1220;--sw-ac:#7fb0ff" aria-label="Midnight" title="Midnight"></button>
         <button type="button" data-theme="forest" style="--sw-bg:#0e1612;--sw-ac:#8fe0a0" aria-label="Forest" title="Forest"></button>
         <button type="button" data-theme="espresso" style="--sw-bg:#1a1411;--sw-ac:#f0a55a" aria-label="Espresso" title="Espresso"></button>
@@ -768,7 +770,7 @@
     <script>
         (function () {
             var root = document.documentElement, meta = document.getElementById('theme-color');
-            var bgs = { graphite:'#17181c', midnight:'#0d1220', forest:'#0e1612', espresso:'#1a1411', plum:'#16101e', ocean:'#0b1519' };
+            var bgs = { graphite:'#17181c', gray:'#1c1d20', midnight:'#0d1220', forest:'#0e1612', espresso:'#1a1411', plum:'#16101e', ocean:'#0b1519' };
             function apply(t) {
                 if (!bgs[t]) t = 'graphite';
                 if (t === 'graphite') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t);
