@@ -355,20 +355,6 @@
             transition: transform 0.2s;
         }
         .project:hover .arrow { transform: translate(4px, -4px); }
-        .private { cursor: default; }
-        .pcard.private:hover { transform: none; }
-        .project .badge {
-            position: absolute;
-            top: 22px;
-            right: 22px;
-            padding: 5px 12px;
-            border-radius: 999px;
-            background: rgba(0, 0, 0, 0.18);
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
         .project h3 { margin: 0 0 10px; font-size: clamp(1.8rem, 6vw, 2.6rem); letter-spacing: -0.035em; line-height: 1; padding-right: 36px; }
         .project p { margin: 0; max-width: 28em; font-size: 1.05rem; line-height: 1.4; }
         .tags { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -607,6 +593,7 @@
                     <div class="track">
                         <a class="pcard" style="--c: #1d2d56; --fg: #f1ece2" href="https://humale.eu" target="_blank" rel="noopener"><span><img class="logo" src="assets/humale-logo.svg" alt="Humale logo"></span><small>Wellbeing site for men in midlife</small></a>
                         <a class="pcard" style="--c: var(--violet)" href="https://presentation-maker-xi.vercel.app/" target="_blank" rel="noopener"><b>Presentation Maker</b><small>Next.js, Gemini API, PptxGenJS</small></a>
+                        <a class="pcard" style="--c: #34d399" href="gridbot.html"><b>Grid Trading Bot</b><small>Node.js, CCXT, how it works</small></a>
                         <a class="pcard" style="--c: #962f33; --fg: #f8f4ea" href="https://airrion.gr" target="_blank" rel="noopener"><span><img class="logo" src="assets/airrion-logo.svg" alt="Airrion logo"><b>Airrion</b></span><small>Node.js, Express, EJS, SQLite</small></a>
                         <a class="pcard" style="--c: var(--blue)" href="https://kontraf.github.io/waterpolo-tactics/" target="_blank" rel="noopener"><b>Tactics Board</b><small>JavaScript, touch events</small></a>
                         <a class="pcard" style="--c: var(--coral)" href="https://kontraf.github.io/waterpolo-tracker/" target="_blank" rel="noopener"><b>Live Stat Tracker</b><small>Tailwind CSS, JavaScript</small></a>
@@ -664,14 +651,14 @@
                         </div>
                         <div class="tags"><span>Next.js</span><span>Gemini API</span><span>PptxGenJS</span><span>Tailwind CSS</span></div>
                     </a>
-                    <div class="project private" style="--c: #34d399">
-                        <span class="badge">Private</span>
+                    <a class="project" style="--c: #34d399" href="gridbot.html">
+                        <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
                         <div>
                             <h3>Grid Trading Bot</h3>
-                            <p>A grid trading bot running live on Binance, with real-time order tracking. It trades with real money, so the dashboard runs on my own private network and is not open to the public.</p>
+                            <p>A grid trading bot running live on Binance, with real-time order tracking. It trades with real money, so its dashboard is private. Read how it works, with an animated simulation.</p>
                         </div>
                         <div class="tags"><span>Node.js</span><span>Express</span><span>CCXT</span><span>WebSockets</span></div>
-                    </div>
+                    </a>
                     <a class="project" style="--c: #962f33; --fg: #f8f4ea" href="https://airrion.gr" target="_blank" rel="noopener">
                         <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
                         <div>
