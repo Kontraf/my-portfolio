@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Grid Trading Bot – George Contrafouris</title>
     <meta name="description" content="How my grid trading bot works: a dynamic trailing grid on SOL/USDC, built with Node.js and CCXT, running live on Binance behind a private network.">
-    <meta name="theme-color" content="#17181c">
+    <meta name="theme-color" content="#0b1620">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Grid Trading Bot – George Contrafouris">
     <meta property="og:description" content="A dynamic trailing grid bot on SOL/USDC. What it does, how it works and why its dashboard is private.">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2334d399'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='700' text-anchor='middle' fill='%2317181c'%3EK%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237fd4ff'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='700' text-anchor='middle' fill='%230b1620'%3EK%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #17181c;
-            --bg-rgb: 23, 24, 28;
-            --accent: #34d399;
-            --amber: #f2b33d;
-            --coral: #ff7a59;
-            --surface: #1f2126;
-            --surface-2: #26282e;
-            --text: #f4f3ef;
-            --muted: #a1a5ad;
-            --line: #2f3238;
-            --on-color: #15161a;
+            --bg: #0b1620;
+            --bg-rgb: 11, 22, 32;
+            --accent: #7fd4ff;
+            --amber: #f3faff;
+            --coral: #8ee8f0;
+            --surface: #112332;
+            --surface-2: #172d3f;
+            --text: #eaf6fd;
+            --muted: #9bb4c6;
+            --line: #234055;
+            --on-color: #06131c;
             --sans: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
             --gutter: 20px;
             --max: 1080px;
@@ -55,7 +55,7 @@
         }
         .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
         .brand { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; text-decoration: none; }
-        .brand span { color: #f2b33d; }
+        .brand span { color: var(--accent); }
         .back { font-size: 0.95rem; font-weight: 600; text-decoration: none; color: var(--muted); transition: color 0.15s; }
         .back:hover { color: var(--text); }
 
@@ -76,8 +76,8 @@
             border: 1px solid var(--line); background: var(--surface);
             font-size: 0.82rem; font-weight: 700; color: var(--muted);
         }
-        .pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); animation: pulse 2s infinite; }
-        @keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); } }
+        .pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(127, 212, 255, 0.6); animation: pulse 2s infinite; }
+        @keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(127, 212, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(127, 212, 255, 0); } }
         .hero h1 {
             margin: 22px auto 0; max-width: 11em; font-weight: 800;
             font-size: clamp(2.7rem, 10vw, 6rem); line-height: 0.98; letter-spacing: -0.04em;
@@ -231,7 +231,7 @@
                         <p>Each grid level remembers its true entry price and fee, so profit on the sell side uses the actual cost. A balance card shows whether the bot's books match Binance.</p>
                     </div>
                     <div class="feat">
-                        <span class="tag" style="--c: #9d8cff">Reliability</span>
+                        <span class="tag" style="--c: #b4c6ff">Reliability</span>
                         <h3>Built to keep running</h3>
                         <p>State is saved safely and flushed at critical moments, the bot shuts down cleanly, and a watchdog detects WebSocket connections that have silently died.</p>
                     </div>
